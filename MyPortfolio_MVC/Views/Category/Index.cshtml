@@ -2,20 +2,27 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
 
 <h2>Kategoriler</h2>
 <br />
 <table class="table-bordered">
-    <tr>
-        <th>#</th>
-        <th>Kategori Adı</th>
-    </tr>
+        <tr>
+            <th>#</th>
+            <th>Kategori Adı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            
+            
+        </tr>
     @foreach (var item in Model)
     {
         <tr>
             <td>@item.CategoryId</td>
             <td>@item.Name</td>
+            <td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-outline-danger">Güncelle</a></td>
         </tr>
 
     }

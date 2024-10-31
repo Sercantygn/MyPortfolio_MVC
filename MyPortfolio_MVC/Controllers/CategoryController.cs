@@ -38,7 +38,29 @@ namespace MyPortfolio_MVC.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult DeleteCategory(int id)
+        {
+            //find değere primarykey olmalı
+            var value = db.TblCategories.Find(id);
+            db.TblCategories.Remove(value);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
+        [HttpGet]
+        public ActionResult UpdateCategory(int id)
+        {
+            var value = db.TblCategories.Find(id);
+            return View(value);
+        }
+        [HttpPost]
+        public ActionResult UpdateCategory(TblCategory model)
+        {
+            var value = db.TblCategories.Find(model.CategoryId);
+            value.Name = model.Name;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
     }
 }
