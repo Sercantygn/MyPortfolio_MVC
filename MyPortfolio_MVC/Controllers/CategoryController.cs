@@ -42,6 +42,12 @@ namespace MyPortfolio_MVC.Controllers
         {
             //find değere primarykey olmalı
             var value = db.TblCategories.Find(id);
+            var projectExist = db.TblProjects.Where(x => x.CategoryID == value.CategoryId).Any();
+            if (projectExist)
+            {
+                TempData["categoryDeleteError"] = "Bu Kategoriye Ait Proje Bulunmaktadır. Bu kategori silinemez";
+                return RedirectToAction("Index");
+            }
             db.TblCategories.Remove(value);
             db.SaveChanges();
             return RedirectToAction("Index");

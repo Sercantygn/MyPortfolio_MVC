@@ -11,14 +11,21 @@ namespace MyPortfolio_MVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TblProject
     {
         public int ProjectId { get; set; }
+        [Required(ErrorMessage ="Proje Adý Boþ Geçilemez.")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Görsel Url Boþ Geçilemez.")]
         public string ImageUrl { get; set; }
+        [Required(ErrorMessage = "Proje Açýklamasý Boþ Geçilemez.")]
+        [MaxLength(250,ErrorMessage = "Açýklama Bölümü 250 Karakter olmalýdýr.")]
         public string Description { get; set; }
+        [Required(ErrorMessage = "Kategori Boþ Geçilemez.")]
         public int CategoryID { get; set; }
+        [Required(ErrorMessage = "GitHub linki  Boþ Geçilemez.")]
         public string GithubUrl { get; set; }
     
         public virtual TblCategory TblCategory { get; set; }
