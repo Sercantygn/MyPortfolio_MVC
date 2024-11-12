@@ -28,7 +28,7 @@
             <th>@count</th>
             <th>@item.SchoolName</th>
             <th>@item.Department</th>
-            <th>@item.StartDate.Value.ToShortDateString()</th>
+            <th>@item.StartDate.ToShortDateString()</th>
             @*<th>@item.StartDate</th>*@
             <th>@(String.IsNullOrEmpty(item.EndDate?.ToString()) ? "Devam Ediyot": item.EndDate?.ToShortDateString())</th>
             <th>@item.Degree</th>
@@ -41,3 +41,5 @@
 
 
 </table>
+<br />
+<a href="/Education/CreateEducation" class="btn btn-outline-success">Yeni Eğitim Ekle</a>
