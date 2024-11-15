@@ -30,7 +30,11 @@ namespace MyPortfolio_MVC.Controllers
             var values = db.TblExperiences.ToList();
             return PartialView(values);
         }
-
+        public PartialViewResult DefaultEducation()
+        {
+            var values = db.TblEducations.ToList();
+            return PartialView(values);
+        }
 
     }
 }
