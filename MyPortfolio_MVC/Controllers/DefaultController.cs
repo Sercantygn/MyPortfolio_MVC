@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MyPortfolio_MVC.Controllers
 {
+    [AllowAnonymous]//herkes erişebilir [Autorize] tersi
     public class DefaultController : Controller
     {
         MyPortfolioDbEntities db = new MyPortfolioDbEntities();
