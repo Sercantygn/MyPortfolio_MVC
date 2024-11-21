@@ -15,7 +15,12 @@ namespace MyPortfolio_MVC.Controllers
         MyPortfolioDbEntities db = new MyPortfolioDbEntities();
         public ActionResult Index()
         {
+
             string email = Session["email"].ToString();
+            if (String.IsNullOrEmpty(email))
+            {
+                return RedirectToAction("Index", "Login");
+            }
             var admin = db.TblAdmins.FirstOrDefault(x => x.Email == email);
             return View(admin);
         }
